@@ -7,6 +7,7 @@ import io
 import json
 import os
 import sys
+import inspect
 import urllib
 from collections import Iterable
 from multiprocessing import Pool
@@ -20,8 +21,13 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.path import Path
 from PIL import Image
 
-from .geometry import Label3d
-from .label import labels
+
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir)
+
+from geometry import Label3d
+from label.label import labels
 
 __author__ = "Fisher Yu"
 __copyright__ = "Copyright (c) 2018, Fisher Yu"
